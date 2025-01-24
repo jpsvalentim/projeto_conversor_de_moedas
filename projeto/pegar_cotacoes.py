@@ -1,6 +1,6 @@
 import requests
 
-def pegar_cotacao_moeda(moeda_origem, moeda_destino)
+def pegar_cotacao_moeda(moeda_origem, moeda_destino):
     link =  F"https://economia.awesomeapi.com.br/last/{moeda_origem}-{moeda_destino}"
     requisicao = requests.get(link)
 

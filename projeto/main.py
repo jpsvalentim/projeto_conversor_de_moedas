@@ -32,9 +32,12 @@ def converter_moeda():
     moeda_destino = campo_moeda_destino.get()
     if moeda_origem and moeda_destino:
         cotacao = pegar_cotacao_moeda(moeda_origem, moeda_destino)
+        texto_cotacao_moeda.configure(text = f"1 {moeda_origem} = {cotacao} - {moeda_destino}.")
 botao_converter = customtkinter.CTkButton(janela,text="Converter", command=converter_moeda)
 
 lista_moedas = customtkinter.CTkScrollableFrame(janela)
+
+texto_cotacao_moeda = customtkinter.CTkLabel(janela, text="")
 
 moedas_disponiveis = nomes_moedas()
 for codigo_moeda in moedas_disponiveis:
@@ -49,7 +52,10 @@ texto_moeda_origem.pack(padx=10, pady =10)
 campo_moeda_origem.pack(padx=10)
 texto_moeda_destino.pack(padx =10, pady = 10)
 campo_moeda_destino.pack(padx=10)
+
 botao_converter.pack(padx =10, pady=10)
+
+texto_cotacao_moeda.pack(padx =10, pady=10)
 
 lista_moedas.pack(padx =10, pady=10)
 
