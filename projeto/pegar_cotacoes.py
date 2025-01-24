@@ -1,3 +1,8 @@
-requests.get 
+import requests
 
-link =  https://economia.awesomeapi.com.br/last/USD-BRL
+def pegar_cotacao_moeda(moeda_origem, moeda_destino)
+    link =  F"https://economia.awesomeapi.com.br/last/{moeda_origem}-{moeda_destino}"
+    requisicao = requests.get(link)
+
+    cotacao = (requisicao.json()[f"{moeda_origem}{moeda_destino}"]["bid"]) 
+    return cotacao
